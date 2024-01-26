@@ -5,7 +5,7 @@
 #if defined(WIN32) || defined(__APPLE__)
 #define thread_yield() sched_yield()
 #else
-#define thread_yield() pthread_yield(NULL)
+#define thread_yield() sched_yield()
 #endif
 
 #define JOB_MAX 0x7F
