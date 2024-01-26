@@ -1,3 +1,58 @@
+The original code from https://github.com/vthoang/cgminer has not been updated in years.
+after a few hours i have a copy of the code that compiles on newer versions of ubuntu and respberry pi OS.
+there are still a few warnings but it finishes.
+here are the updated compile information
+
+Linux cgminer build steps
+
+    Ubuntu 16.04.1 LTS new install.
+    Default Install (+OpenSSH server)
+
+Code:
+sudo apt-get update
+sudo apt-get upgrade -y
+
+sudo apt-get install -y build-essential git autoconf automake libtool pkg-config libcurl4-openssl-dev libudev-dev
+    
+mkdir -p git/BossMAN559; cd git/Bossman559
+git clone https://github.com/BossMAN559/cgminer.git
+cd cgminer
+
+CFLAGS="-O2 -fcommon -march=native" ./autogen.sh --enable-gekko
+make -j 2
+
+
+
+    Debian 8.7.1 new install.
+        Default Install (No desktop environment, + SSH Server)
+        (*do not specify root password to enable sudo)
+   
+    or Raspbian - Kernel version: 4.4 (Raspberry Pi)
+    or Linux Mint 19 "Tara"
+
+Code:
+sudo apt-get update
+sudo apt-get upgrade -y
+
+sudo apt-get install -y build-essential git libusb-1.0-0-dev libusb-1.0-0 libcurl4-openssl-dev libncurses5-dev libudev-dev screen libtool automake pkg-config libjansson-dev
+
+mkdir -p git/BossMAN559; cd git/BossMAN559
+git clone https://github.com/BossMAN559/cgminer.git
+cd cgminer
+
+CFLAGS="-O2 -fcommon" ./autogen.sh --enable-gekko
+make -j 2
+
+
+USB init error:
+
+cd ~/git/BossMAN559/cgminer/
+sudo usermod -G plugdev -a `whoami`
+sudo cp 01-cgminer.rules /etc/udev/rules.d/
+sudo reboot
+
+
+------------------------------------------------------------------------------------
 This is a multi-threaded multi-pool FPGA and ASIC miner for bitcoin.
 
 This code is provided entirely free of charge by the programmer in his spare
