@@ -3889,12 +3889,10 @@ void usb_cleanup(void)
 		cgpu = devices[i];
 		switch (cgpu->drv->drv_id) {
 			case DRIVER_bflsc:
-			case DRIVER_bitforce:
 			case DRIVER_bitfury:
 			case DRIVER_cointerra:
 			case DRIVER_drillbit:
 			case DRIVER_gekko:
-			case DRIVER_modminer:
 			case DRIVER_icarus:
 			case DRIVER_avalon:
 			case DRIVER_avalon2:
