@@ -237,9 +237,7 @@ static inline int fsync (int fd)
  * trying to claim same chip but different devices. Adding a device here will
  * update all macros in the code that use the *_PARSE_COMMANDS macros for each
  * listed driver. */
-#define FPGA_PARSE_COMMANDS(DRIVER_ADD_COMMAND) \
-	DRIVER_ADD_COMMAND(bitforce) \
-	DRIVER_ADD_COMMAND(modminer)
+#define FPGA_PARSE_COMMANDS(DRIVER_ADD_COMMAND)
 
 #define ASIC_PARSE_COMMANDS(DRIVER_ADD_COMMAND) \
 	DRIVER_ADD_COMMAND(ants1) \
